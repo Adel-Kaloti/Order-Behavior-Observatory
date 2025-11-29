@@ -1,4 +1,7 @@
 
+<p align="center">
+  <img src="logo.png" width="300" />
+</p>
 
 <h1 align="center">Order Behavior Report</h1>
 
