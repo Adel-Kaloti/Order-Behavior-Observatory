@@ -103,8 +103,6 @@ This project analyzes three key business challenges:
 
 ## ✅ Results & Business Recommendations
 
-### 1. Key Results
-
 - **Strong top-line growth in 2023**  
   - Total Sales reached **$733.2K** (**+20.36% vs PY**).  
   - Total Profit reached **$93.4K** (**+14.24% vs PY**).  
@@ -124,7 +122,7 @@ This project analyzes three key business challenges:
 
 ---
 
-### 2. Business Recommendations
+### ✅ Stakeholders Recommendations
 
 1. **Double-down on high-performing sub-categories**  
    Invest more in **Technology and Office Supplies**, especially top growers like **Appliances, Phones, Storage and Binders** (stock availability, marketing, cross-sell bundles).
@@ -146,7 +144,28 @@ This project analyzes three key business challenges:
 5. **Create a recurring performance review using this dashboard**  
    - Use the Tableau dashboard monthly to track **Sales, Profit, Quantity and YoY%**.  
    - Build a simple action log: which categories to push, protect, fix, or exit based on the latest data.
+  
+   ---
+
+### 🧰 Tools Kit
 
 <p align="center">
   <img src="tools.png" width="600" />
 </p>
+
+<p align="center">
+  <!-- Tableau button -->
+  <a href="https://public.tableau.com/app/profile/adel.kaloti1" target="_blank">
+    <img src="https://img.shields.io/badge/View%20on%20Tableau-006699?style=for-the-badge&logo=tableau&logoColor=white" />
+  </a>
+
+  <!-- SQL file button -->
+  <a href="EDA_SQL_Queries.txt">
+    <img src="https://img.shields.io/badge/View%20SQL%20File-ff9933?style=for-the-badge&logo=database&logoColor=white" />
+  </a>
+</p>
+
+
+
+
+
