@@ -16,7 +16,6 @@
 </p>
 
 -----
-
 ### ❗ Main Business Problem
 
 This project analyzes three key business challenges:
@@ -30,15 +29,17 @@ This project analyzes three key business challenges:
 3. **How stable is demand across regions and time?**  
    Volatile trends in some product groups make inventory planning difficult and may lead to stockouts in high-growth items and overstock in declining ones.
 
-   ### Entity-Relationship Diagram
+-----
+   
+### Entity-Relationship Diagram
 
 <p align="center">
   <img src="Data_VIZ/ERD.png" width="600" />
 </p>
-<p align="center">
-  <img src="Data_VIZ/Sales BAN.gif" width="600" />
 
-  Looking at the full historical trend and focusing on 2023:
+-----
+   
+###  Looking at the full historical trend and focusing on 2023:
 
 1. **Strong growth in 2023**
    - Total Sales in 2023 reached **$733.2K**, with a **+20.36%** increase vs. the previous year.
@@ -54,11 +55,13 @@ This project analyzes three key business challenges:
 
 4. **Actionable takeaways**
    - 2023 was a growth year overall, but monitoring **profit margins** and **discount behavior** is critical to sustain healthy profitability while continuing to scale sales volume.
+<p align="center">
+  <img src="Data_VIZ/Sales BAN.gif" width="600" />
 
 </p>
-<p align="center">
-  <img src="Data_VIZ/Donut chart.gif" width="600" />
-</p>
+
+-----
+
 ### 💰 Profit by Category – Insights
 
 - Total profit for the period is **$81,795**.  
@@ -67,8 +70,11 @@ This project analyzes three key business challenges:
 - **Furniture** generates only **$6,960 (~8%)**, highlighting a category that may need optimization in pricing, product mix, or discount strategy.
 
 <p align="center">
-  <img src="Data_VIZ/BAR SUBCategory.gif" width="600" />
+  <img src="Data_VIZ/Donut chart.gif" width="600" />
 </p>
+
+-----
+
 ### 🔍 Sub-Category Insights
 
 - Strong profit growth in **Appliances, Binders, Phones, Storage and Labels** indicates these sub-categories are key drivers of overall performance.  
@@ -77,8 +83,11 @@ This project analyzes three key business challenges:
 - Focusing marketing and inventory efforts on the top-growing sub-categories while reviewing the underperformers can significantly improve total profitability.
 
 <p align="center">
-  <img src="Data_VIZ/Quantity BAN.gif" width="600" />
+  <img src="Data_VIZ/BAR SUBCategory.gif" width="600" />
 </p>
+
+-----
+
 ### 📦 Quantity Trend Insights
 
 - Total quantity reached **12.5K units**, a strong **+26.83%** increase vs. previous year.  
@@ -86,6 +95,11 @@ This project analyzes three key business challenges:
 - A sharp uplift in **Q4** shows the highest monthly quantities (peaking around **1,840 units**), indicating strong end-of-year demand.  
 - The overall pattern suggests growing market traction, with volume expansion being a key driver of top-line growth.
 
+  <p align="center">
+  <img src="Data_VIZ/Quantity BAN.gif" width="600" />
+</p>
+
+-----
 
 ## ✅ Results & Business Recommendations
 
