@@ -1,0 +1,100 @@
+-- 1. Top 5 Customers by Total Sales
+
+SELECT CustomerID, SUM(Sales) AS TotalSales
+FROM Orders
+GROUP BY CustomerID
+ORDER BY TotalSales DESC
+LIMIT 5;
+
+-- 2. Top-Selling Products in Each Category
+
+SELECT Category, ProductName, TotalSales
+FROM (
+  SELECT p.Category, p.ProductName, SUM(o.Sales) AS TotalSales,
+         RANK() OVER (PARTITION BY p.Category ORDER BY SUM(o.Sales) DESC) AS rnk
+  FROM Orders o
+  JOIN Products p ON o.ProductID = p.ProductID
+  GROUP BY p.Category, p.ProductName
+) ranked
+WHERE rnk = 1;
+
+-- 3. Monthly Sales Trend
+SELECT DATE_TRUNC('month', OrderDate) AS Month, SUM(Sales) AS MonthlySales
+FROM Orders
+GROUP BY Month
+ORDER BY Month;
+
+-- 4. Orders with Unusually High Discounts
+SELECT OrderID, Discount, Sales, Quantity
+FROM Orders
+WHERE Discount > (
+  SELECT AVG(Discount) + 2 * STDDEV(Discount) FROM Orders
+)
+ORDER BY Discount DESC;
+
+-- 5. Most Profitable Regions
+SELECT l.Region, SUM(o.Profit) AS TotalProfit
+FROM Orders o
+JOIN Location l ON o.PostalCode = l.PostalCode
+GROUP BY l.Region
+ORDER BY TotalProfit DESC;
+
+-- 6. Average Order Value per Segment
+SELECT Segment, AVG(Sales) AS AvgOrderValue
+FROM Orders
+GROUP BY Segment;
+
+-- 7. Customers with Most Orders
+SELECT CustomerID, COUNT(OrderID) AS OrderCount
+FROM Orders
+GROUP BY CustomerID
+ORDER BY OrderCount DESC
+LIMIT 10;
+
+-- 8. Profit Margin per Product
+SELECT p.ProductID, p.ProductName,
+       SUM(o.Profit) / NULLIF(SUM(o.Sales), 0) AS ProfitMargin
+FROM Orders o
+JOIN Products p ON o.ProductID = p.ProductID
+GROUP BY p.ProductID, p.ProductName
+ORDER BY ProfitMargin DESC;
+
+-- 9. Orders with Negative Profit
+SELECT OrderID, ProductID, Sales, Profit
+FROM Orders
+WHERE Profit < 0
+ORDER BY Profit ASC;
+
+-- 10. Average Shipping Delay by Mode
+SELECT ShipMode,
+       AVG(DATE_PART('day', ShipDate - OrderDate)) AS AvgShippingDelay
+FROM Orders
+GROUP BY ShipMode;
+
+-- 11. Running Total of Sales Over Time
+SELECT OrderDate, Sales,
+       SUM(Sales) OVER (ORDER BY OrderDate ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS RunningTotal
+FROM Orders
+ORDER BY OrderDate;
+
+-- 12. Fastest Growing Subcategories Month-over-Month
+WITH MonthlySales AS (
+  SELECT DATE_TRUNC('month', OrderDate) AS Month,
+         p.SubCategory,
+         SUM(o.Sales) AS TotalSales
+  FROM Orders o
+  JOIN Products p ON o.ProductID = p.ProductID
+  GROUP BY Month, p.SubCategory
+),
+Growth AS (
+  SELECT Month, SubCategory, TotalSales,
+         LAG(TotalSales) OVER (PARTITION BY SubCategory ORDER BY Month) AS PrevMonthSales
+  FROM MonthlySales
+)
+SELECT Month, SubCategory,
+       TotalSales,
+       PrevMonthSales,
+       ROUND((TotalSales - PrevMonthSales) / NULLIF(PrevMonthSales, 0) * 100, 2) AS GrowthPercent
+FROM Growth
+WHERE PrevMonthSales IS NOT NULL
+ORDER BY GrowthPercent DESC;
