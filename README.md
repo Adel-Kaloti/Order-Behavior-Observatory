@@ -1,8 +1,6 @@
-
 <p align="center">
-  <img src="logo.png" width="300" />
+  <img src="logo.png" width="200" />
 </p>
-
 <h1 align="center">Order Behavior Report</h1>
 
 # Executive Summary
